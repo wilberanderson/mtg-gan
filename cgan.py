@@ -123,14 +123,14 @@ if opt.continue_training:
 			curr = int(f.replace("generator","").replace("discriminator","").replace(".weights",""))
 			if curr > maximum:
 				maximum = curr
-		if os.path.isfile("/m2docs/mtg-gan/checkpoints/discriminator"+maximum+".weights") and os.path.isfile("/m2docs/mtg-gan/checkpoints/generator"+maximum+".weights"):
+		if os.path.isfile("/m2docs/mtg-gan/checkpoints/discriminator"+str(maximum)+".weights") and os.path.isfile("/m2docs/mtg-gan/checkpoints/generator"+str(maximum)+".weights"):
 			print("Continuing from epoch {}.".format(maximum))
 			print("Loading generator weights generator{}.weights...".format(maximum))
-			generator.load("/m2docs/mtg-gan/checkpoints/generator"+maximum+".weights")
+			generator = torch.load("/m2docs/mtg-gan/checkpoints/generator"+str(maximum)+".weights")
 			print("Done.")
 			print("Loading discriminator weights discriminator{}.weights...".format(maximum))
 			print("Done.")
-			discriminator.load("/m2docs/mtg-gan/checkpoints/discriminator"+maximum+".weights")
+			discriminator = torch.load("/m2docs/mtg-gan/checkpoints/discriminator"+str(maximum)+".weights")
 		else:
 			print("A weights file is missing, make sure the highest epoch reached has both a generator and discriminator weights file.")
 
@@ -157,7 +157,6 @@ optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=opt.lr, betas=(opt
 
 FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
-
 
 def sample_image(n_row, batches_done):
 	"""Saves a grid of generated digits ranging from 0 to n_classes"""
