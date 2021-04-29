@@ -22,4 +22,7 @@ button{
 	width:150px;
 	font-size: 14pt;
 }
-.blur { filter: blur(30px); }
+
+button.slim{
+	width:72px;
+}
