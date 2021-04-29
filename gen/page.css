@@ -1,0 +1,25 @@
+html{
+	font-size: 14pt;
+	color:white;
+	background-color: #000000;
+}
+img{
+	padding:50px;
+	padding-left: 10px;
+	width:304px;
+	height:364px;
+	background-color: black;
+	float:left;
+}
+div#buttons{
+	float:left;
+	height:100vh;
+	width:20vw;
+	padding-left: 50px;
+	padding-top: 50px;
+}
+button{
+	width:150px;
+	font-size: 14pt;
+}
+.blur { filter: blur(30px); }

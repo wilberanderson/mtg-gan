@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MTG-GAN</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="page.css" />
+    <script type='text/javascript' src='loader.js'></script>
+  </head>
+
+<body>
+  <div id="buttons">
+    <form id='buttons'>
+      <p>Color:</p>
+      <input type="radio" id="white" name="color" value="W" checked>
+      <label for="white">White</label>
+      <br>
+      <input type="radio" id="blue" name="color" value="U">
+      <label for="blue">Blue</label>
+      <br>
+      <input type="radio" id="black" name="color" value="B">
+      <label for="black">Black</label>
+      <br>
+      <input type="radio" id="red" name="color" value="R">
+      <label for="red">Red</label>
+      <br>
+      <input type="radio" id="green" name="color" value="G">
+      <label for="green">Green</label>
+
+      <br>  
+
+      <p>Type:</p>
+      <input type="radio" id="creature" name="type" value="Creature" checked>
+      <label for="creature">Creature</label><br>
+      <input type="radio" id="enchantment" name="type" value="Enchantment">
+      <label for="enchantment">Enchantment</label><br>  
+      <input type="radio" id="instant" name="type" value="Instant">
+      <label for="instant">Instant</label><br>
+      <input type="radio" id="sorcery" name="type" value="Sorcery">
+      <label for="sorcery">Sorcery</label><br>  
+      <input type="radio" id="land" name="type" value="Land">
+      <label for="land">Land</label><br>
+    </form>
+      <button onclick='loadrandom();'>Load</button>
+      <button onclick='bluron();'>Blur on</button>
+      <button onclick='bluroff();'>Blur off</button>
+  </div>
+
+  <div id="disp">
+    <img id='image' src='Creature_B/0_02_01.png'>
+  </div>
+</body>
+</html>
