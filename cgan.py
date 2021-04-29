@@ -35,6 +35,7 @@ parser.add_argument("--img_size_y", type=int, default=150, help="size of each im
 parser.add_argument("--channels", type=int, default=3, help="number of image channels")
 parser.add_argument("--sample_interval", type=int, default=100, help="interval between image sampling")
 parser.add_argument("--continue_training", type=bool, default=False, help="continue training")
+parser.add_argument("--images_to_save", type=int, default=20, help="images to generate after training")
 opt = parser.parse_args()
 print(opt)
 
@@ -279,12 +280,11 @@ plt.savefig('/m2docs/mtg-gan/images/loss-metric.png',dpi=600)
 ## Save final images
 
 save_dir = "/m2docs/mtg-gan/gen"
-quantity = 20
 n_row = 25
 labels = ["Creature_B","Creature_G","Creature_R","Creature_U","Creature_W","Enchantment_B","Enchantment_G","Enchantment_R","Enchantment_U","Enchantment_W","Instant_B","Instant_G","Instant_R","Instant_U","Instant_W","Land_B","Land_G","Land_R","Land_U","Land_W","Sorcery_B","Sorcery_G","Sorcery_R","Sorcery_U","Sorcery_W"]
-print("Generating {} images...".format(quantity))
+print("Generating {} images...".format(opt.images_to_save))
 
-create_images(n_row,quantity)
+create_images(n_row,opt.images_to_save)
 
 # for label in labels:
 #     if not os.path.exists(save_dir+'/'+label):
@@ -292,7 +292,7 @@ create_images(n_row,quantity)
 
 im_list = os.listdir(save_dir+"/raw")
 
-for image in range(quantity):
+for image in range(opt.images_to_save):
 	# split
 	slices = None
 	slices = slice(save_dir+"/raw/"+str(image)+".png",n_row**2)
